@@ -32,3 +32,9 @@ go.work
 
 /batch/cmd/credentials.json
 /.vscode
+
+/back/.idea
+/back/.mvn
+/back/target
+/back/mvnw
+/back/mvnw.cmd
