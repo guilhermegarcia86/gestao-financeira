@@ -1,4 +1,4 @@
-package br.com.gestao.financeira.domain;
+package br.com.gestao.financeira.back.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 

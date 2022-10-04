@@ -1,0 +1,33 @@
+
+spring:
+  flyway:
+    enabled: false
+    url: jdbc:postgres://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE:back}
+    user: ${DATABASE_USER:root}
+    password: ${DATABASE_PASSWD:root}
+    schemas:
+      - ${DATABASE:back}
+  application:
+    name: back
+  datasource:
+    url: jdbc:postgresql://${DATABASE_HOST:localhost}:${DATABASE_PORT:5433}/${DATABASE:back}
+    username: ${DATABASE_USER:postgres}
+    password: ${DATABASE_PASSWD:postgres}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 450
+      minimum-idle: 50
+      idle-timeout: 3000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: ${SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: ${FORMAT_SQL:true}
+        jdbc:
+          time_zone: UTC
+          batch_size: ${JBDC_BATCH_SIZE:50}
+      type: trace
