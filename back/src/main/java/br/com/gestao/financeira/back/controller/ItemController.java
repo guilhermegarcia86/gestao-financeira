@@ -5,6 +5,7 @@ import br.com.gestao.financeira.back.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,10 @@ public class ItemController {
     @GetMapping
     public ResponseEntity<List<Item>> findAllItems(){
         return ResponseEntity.ok(this.service.findAllItems());
+    }
+
+    @GetMapping("/{month}")
+    public ResponseEntity<List<Item>> findByMonth(@PathVariable String month) {
+        return ResponseEntity.ok(this.service.findByMonth(month));
     }
 }
