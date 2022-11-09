@@ -16,8 +16,8 @@ export class EmailSender implements Mail {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'guilherme.garcia86@gmail.com',
-                pass: 'wvchluqufhekbkus'
+                user: '',
+                pass: ''
             }
         });
 
