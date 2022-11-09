@@ -22,6 +22,7 @@ public class Item {
     private String vencimento;
     private String tipo;
     private String periodicidade;
+    private String email;
 
     @Override
     public boolean equals(Object o) {
@@ -47,6 +48,7 @@ public class Item {
                 ", vencimento='" + vencimento + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", periodicidade='" + periodicidade + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 
@@ -112,5 +114,13 @@ public class Item {
 
     public void setPeriodicidade(String periodicidade) {
         this.periodicidade = periodicidade;
+    }
+
+   public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

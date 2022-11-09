@@ -2,8 +2,8 @@ import Kafka, { KafkaConsumer, Message } from 'node-rdkafka'
 
 export function createConsumer(kafkaConsumer: typeof Kafka.KafkaConsumer, onDataCallback: (data: Message) => void): Promise<KafkaConsumer> {
   const consumer: KafkaConsumer = new Kafka.KafkaConsumer({
-    'bootstrap.servers': process.env.bootstrap_servers,
-    'group.id': process.env.group_id,
+    'bootstrap.servers': "127.0.0.1:9092",
+    'group.id': "email-notification",
   }, {
     'auto.offset.reset': 'earliest'
   });

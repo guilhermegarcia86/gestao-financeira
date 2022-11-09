@@ -1,4 +1,6 @@
+import { EmailDTO } from "@/core/service";
+
 export interface Mail {
-    send: () => Promise<void>
+    send: (emailDTO: EmailDTO) => Promise<void>
   }
   

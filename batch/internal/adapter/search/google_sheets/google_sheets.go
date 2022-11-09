@@ -55,7 +55,7 @@ func (search *googleSheets) SearchItems() ([]domain.Item, error) {
 		return nil, errors.New("NO DATA FOUND")
 	} else {
 		fmt.Println("Mes, Nome, Valor, Status, Vencimento, Tipo, Periodicidade:")
-		itemSlice := make([]domain.Item, len(resp.Range))
+		itemSlice := make([]domain.Item, len(resp.Values))
 		for index, row := range resp.Values {
 			fmt.Printf("%s, %s, %s, %s, %s, %s, %s\n", month, row[0], row[1], row[2], row[3], row[4], row[5])
 			itemSlice[index].Mes = month
@@ -65,6 +65,7 @@ func (search *googleSheets) SearchItems() ([]domain.Item, error) {
 			itemSlice[index].Vencimento = row[3].(string)
 			itemSlice[index].Tipo = row[4].(string)
 			itemSlice[index].Periodicidade = row[5].(string)
+			itemSlice[index].Email = "supermandra@gmail.com"
 		}
 		return itemSlice, nil
 	}

@@ -1,22 +1,23 @@
 import * as nodemailer from "nodemailer";
 import { Mail } from "@/core/port/mail/mail";
+import { EmailDTO } from "@/core/domain/domain";
 
 export class EmailSender implements Mail {
 
-    async send (): Promise<void> {
+    async send (emailDTO: EmailDTO): Promise<void> {
 
         const mailOptions = {
-            from: "portalband@band.com.br",
-            to: "supermandra@gmail.com",
-            subject: "aviso",
-            html: "testando app"
+            from: emailDTO.de,
+            to: emailDTO.para,
+            subject: emailDTO.para,
+            html: emailDTO.mensagem
         };
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: '',
-                pass: ''
+                user: 'guilherme.garcia86@gmail.com',
+                pass: 'wvchluqufhekbkus'
             }
         });
 

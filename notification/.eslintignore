@@ -1,7 +1,6 @@
 node_modules
 dist
 coverage
-newrelic.js
 @types
 
 src/core/components/config/migration

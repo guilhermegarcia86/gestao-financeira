@@ -1,5 +1,8 @@
 
 spring:
+  kafka:
+    consumer:
+      auto-offset-reset: earliest
   flyway:
     enabled: false
     url: jdbc:postgres://${DATABASE_HOST:localhost}:${DATABASE_PORT:5432}/${DATABASE:back}

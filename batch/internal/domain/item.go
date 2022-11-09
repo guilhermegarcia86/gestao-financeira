@@ -9,4 +9,5 @@ type Item struct {
 	Vencimento    string `json:"vencimento,omitempty"`
 	Tipo          string `json:"tipo,omitempty"`
 	Periodicidade string `json:"periodicidade,omitempty"`
+	Email         string `json:"email,omitempty"`
 }

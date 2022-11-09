@@ -25,3 +25,12 @@ async def getItems():
 @app.get("/email")
 async def getEmails():
     return await getEmails()
+
+@app.get("/all")
+async def getAll():
+    items = await getItem()
+    emails = await getEmails()
+    merged = dict()
+    merged.update(items)
+    merged.update(emails)
+    return merged

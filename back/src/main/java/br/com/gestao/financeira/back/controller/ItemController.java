@@ -4,10 +4,7 @@ import br.com.gestao.financeira.back.domain.Item;
 import br.com.gestao.financeira.back.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +27,9 @@ public class ItemController {
     @GetMapping("/{month}")
     public ResponseEntity<List<Item>> findByMonth(@PathVariable String month) {
         return ResponseEntity.ok(this.service.findByMonth(month));
+    }
+    @PostMapping
+    public ResponseEntity<Item> saveItem(@RequestBody Item item) {
+        return ResponseEntity.ok(this.service.saveItem(item));
     }
 }

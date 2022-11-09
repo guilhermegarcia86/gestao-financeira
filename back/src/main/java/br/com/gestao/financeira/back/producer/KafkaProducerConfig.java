@@ -13,6 +13,7 @@ import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import br.com.gestao.financeira.back.domain.Item;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
 @Configuration
 public class KafkaProducerConfig {
@@ -28,7 +29,7 @@ public class KafkaProducerConfig {
                 StringSerializer.class);
         configProps.put(
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                new JsonDeserializer<>(Item.class));
+                JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
