@@ -5,15 +5,17 @@ import { Repository } from '../port/repository/repository'
 import { EmailDTO } from '../domain/domain'
 import { Mail } from '../port/mail/mail'
 import { EmailConsumer } from '../domain/emailConsumer'
+import template from '@/utils/emailTemplate'
 
 const log = logger({ context: 'EmailService' })
 export class EmailService {
   constructor (private readonly emailRepository: Repository<Email>, private readonly emailSender: Mail) {}
 
   async sendEmail (emailConsumer: EmailConsumer): Promise<void> {
-    const email = new EmailDTO(undefined, "", emailConsumer.email, '', '', false)
+    const email = new EmailDTO(undefined, "gestaofinanceira@notreply.com", emailConsumer.email, `Item ${emailConsumer.tipo} cadastrado`, template(emailConsumer), false)
     const emailSaved = await this.emailRepository.save(email)
     await this.emailSender.send(emailSaved)
+    emailSaved.isSent = true
     await this.emailRepository.update(emailSaved)
   }
 
